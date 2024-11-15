@@ -61,7 +61,16 @@ cmd({
       switch (userReply.trim()) {
         case '1':
           await conn.sendMessage(from, { text: 'Owner Menu\n\ntype owner command ✅' }, { quoted: mek });
-          break;
+          break; 
+ // URL of the image you want to include
+        const imageUrl = 'https://telegra.ph/file/cef9e06c2bb1935ac36ee.jpg'; // Replace with your actual image URL
+
+        // Send the image with the status as the caption
+        await conn.sendMessage(from, {
+            image: { url: imageUrl },
+            caption: 1
+        }, { quoted: mek || null });
+              
         case '2':
           await conn.sendMessage(from, { text: 'Downloaded Menu\n\ntype downloaded command💥' }, { quoted: mek });
           break;
