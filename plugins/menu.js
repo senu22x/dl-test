@@ -1,11 +1,14 @@
-const config = require('../config')
+const {readEnv} = require('../lib/database')
 const {cmd, commands} = require('../command')
 const os = require("os")
-const {runtime} = require('../lib/functions')
+const { runtime} = require('../lib/functions')
+const { generateWAMessageFromContent, prepareWAMessageMedia, generateWAMessageContent , proto} = require('@whiskeysockets/baileys');
+const config = require('../config');
 
 cmd({
     pattern: "menu",
     alias: ["panel","penal","list","allmenu"],
+    react: "📝",
     desc: "Check menu all",
     category: "main",
     filename: __filename
@@ -75,8 +78,8 @@ cmd({
         case '3':
           await conn.sendMessage(from, { text: 'States Menu\n\ntype states command❌' }, { quoted: mek });
           break;
-        default:
-          await conn.sendMessage(from, { text: 'Invalid response. Please reply with 1, 2, or 3.' }, { quoted: mek });
+           default:
+                        reply("Invalid option. Please select a valid menu option (1-3).");
       }
 
       conn.ev.off('messages.upsert', listener);
