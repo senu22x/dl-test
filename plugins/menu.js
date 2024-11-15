@@ -20,7 +20,15 @@ cmd({
         const totalRAM = Math.round(require('os').totalmem() / 1024 / 1024); // Total RAM in MB
         const usedRAM = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2); // Used RAM in MB
         const freeRAM = (totalRAM - parseFloat(usedRAM)).toFixed(2); // Free RAM in MB
+  try {
+        const config = await readEnv();
 
+        async function sendReplies(conn, from, replies, pushname) {
+            for (const [index, reply] of replies.entries()) {
+                setTimeout(async () => {
+                    await conn.sendMessage(from, { text: reply.replace('${pushname}', pushname) }, { quoted: null });
+                }, index * 700);
+            
         let status = `╔══════════════╗
 ╠ DeadZo Main  Menu  ╣
 ╚══════════════╝
