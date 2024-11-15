@@ -49,6 +49,33 @@ cmd({
             image: { url: imageUrl },
             caption: status
         }, { quoted: mek || null });
+
+        const listener = async (msg) => {
+      const message = msg.messages[0];
+      console.log('Received message:', message);
+      if (message.key.remoteJid !== from || message.key.fromMe) return;
+
+      const userReply = message.message?.conversation || message.message?.extendedTextMessage?.text || '';
+      if (!userReply) return;
+
+      switch (userReply.trim()) {
+        case '1':
+          await conn.sendMessage(from, { text: 'Owner Menu\n\ntype owner command ✅' }, { quoted: mek });
+          break;
+        case '2':
+          await conn.sendMessage(from, { text: 'Downloaded Menu\n\ntype downloaded command💥' }, { quoted: mek });
+          break;
+        case '3':
+          await conn.sendMessage(from, { text: 'States Menu\n\ntype states command❌' }, { quoted: mek });
+          break;
+        default:
+          await conn.sendMessage(from, { text: 'Invalid response. Please reply with 1, 2, or 3.' }, { quoted: mek });
+      }
+
+      conn.ev.off('messages.upsert', listener);
+    };
+
+    conn.ev.on('messages.upsert', listener);
         
     } catch (e) {
         console.log(e)
