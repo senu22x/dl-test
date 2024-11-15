@@ -1,10 +1,10 @@
-const { cmd } = require('../command');
-const config = require('../config');
-const os = require("os");
-const {runtime} = require('../lib/functions');
+const { cmd } = require('../command')
+const config = require('../config')
+const os = require("os")
+const {runtime} = require('../lib/functions')
 
 cmd({
-  pattern: "nmenu",
+  pattern: "menuu",
   desc: "Display main menu",
   category: "main",
   filename: __filename
