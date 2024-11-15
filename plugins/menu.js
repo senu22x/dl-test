@@ -6,7 +6,7 @@ const { readEnv } = require('../lib/database')
 const fs = require('fs');
 const path = require('path');
 const { readEnv } = require('../lib/database');
-const { fetchJson } = require('../lib/functions');
+
 
 cmd({
     pattern: "menu",
