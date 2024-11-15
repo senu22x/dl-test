@@ -3,7 +3,10 @@ const {cmd, commands} = require('../command')
 const os = require("os")
 const {runtime} = require('../lib/functions')
 const { readEnv } = require('../lib/database')
-const config = await readEnv();
+const fs = require('fs');
+const path = require('path');
+const { readEnv } = require('../lib/database');
+const { fetchJson } = require('../lib/functions');
 
 cmd({
     pattern: "menu",
@@ -21,7 +24,8 @@ cmd({
         let status = `╔══════════════╗
 ╠ DeadZo Main  Menu  ╣
 ╚══════════════╝
-
+ Hey ${pushname}
+ 
 *SupportUs⤵*
 𝚆𝚑𝚊𝚝𝚜𝚊𝚙𝚙-https://whatsapp.com/channel/0029ValK0gn4SpkP6iaXoj2y
 𝚈𝚘𝚞𝚝𝚞𝚋𝚎-https://youtube.com/@dila_lk
