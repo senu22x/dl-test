@@ -47,8 +47,6 @@ cmd({
 
 // owener menu    
         const text1 = 'Owner menu 01'
-
-        let text1 ='on mn'
         
         // Send the image with the status as the caption
         await conn.sendMessage(from, {
@@ -66,9 +64,10 @@ cmd({
 
       switch (userReply.trim()) {
         case '1':
-          await conn.sendMessage(from, {  image: { url: imageUrl },
+         await conn.sendMessage(from, {
+            image: { url: imageUrl },
             caption: text1
-         }, { quoted: mek });
+        }, { quoted: mek || null });
           break; 
         case '2':
           await conn.sendMessage(from, { text: 'Downloaded Menu\n\ntype downloaded command💥' }, { quoted: mek });
