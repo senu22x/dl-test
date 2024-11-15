@@ -1,7 +1,5 @@
 const { cmd } = require('../command')
-const config = require('../config')
-const os = require("os")
-const {runtime} = require('../lib/functions')
+
 
 cmd({
   pattern: "menuu",
