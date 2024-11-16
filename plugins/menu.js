@@ -4,7 +4,7 @@ const os = require("os")
 const { runtime} = require('../lib/functions')
 const { generateWAMessageFromContent, prepareWAMessageMedia, generateWAMessageContent , proto} = require('@whiskeysockets/baileys');
 const config = require('../config');
-const config = await readEnv();
+
 
 
 cmd({
