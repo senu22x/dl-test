@@ -81,7 +81,7 @@ https://whatsapp.com/channel/0029Vaw0NYoAInPkQUJJZK1t
         case '1':
          await conn.sendMessage(from, {
             image: { url: imageUrl },
-            caption: omenu
+            caption: omenu, react :"💭",
         }, { quoted: mek || null });
           break; 
         case '2':
